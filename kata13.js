@@ -22,7 +22,7 @@ const talkingCalendar = function (date) {
 
   const nanStatement = "Please input a valid date";
   //check to see if the given day is a number and under 32
-  if (Number(newArray[2]) === newArray[2] && Number(newArray[2]) < 32) {
+  if (Number(newArray[2]) == newArray[2] && Number(newArray[2]) < 32) {
     let dayAsNumber = Number(newArray[2]);
     //check to see which ending needs to be applied
     if (dayAsNumber === 1 || dayAsNumber === 21 || dayAsNumber === 31) {
@@ -40,7 +40,7 @@ const talkingCalendar = function (date) {
   }
 
   //check to see if the given month is a number and under 13
-  if (Number(newArray[1]) === newArray[1] && Number(newArray[1]) < 13) {
+  if (Number(newArray[1]) == newArray[1] && Number(newArray[1]) < 13) {
     //iterate for each month
     for (let m = 1; m < 13; m++) {
       //if itterator = month
@@ -54,7 +54,7 @@ const talkingCalendar = function (date) {
   }
 
   //check to see if the given year is a number
-  if (Number(returnedYear) === returnedYear) {
+  if (Number(returnedYear) == returnedYear) {
     const returnedString = `${returnedMonth} ${returnedNumber}, ${returnedYear}`;
     return returnedString;
   } else {

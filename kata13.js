@@ -15,15 +15,15 @@ const talkingCalendar = function (date) {
     "November",
     "December",
   ];
- 
+
   let returnedYear = newArray[0];
   let returnedNumber = "";
   let returnedMonth = "";
 
   const nanStatement = "Please input a valid date";
   //check to see if the given day is a number and under 32
-  if (Number(newArray[2]) == newArray[2] && Number(newArray[2]) < 32) {
-    let dayAsNumber = Number(newArray[2])
+  if (Number(newArray[2]) === newArray[2] && Number(newArray[2]) < 32) {
+    let dayAsNumber = Number(newArray[2]);
     //check to see which ending needs to be applied
     if (dayAsNumber === 1 || dayAsNumber === 21 || dayAsNumber === 31) {
       returnedNumber = newArray[2] + endings[0];
@@ -40,13 +40,12 @@ const talkingCalendar = function (date) {
   }
 
   //check to see if the given month is a number and under 13
-  if (Number(newArray[1]) == newArray[1] && Number(newArray[1]) < 13) {
+  if (Number(newArray[1]) === newArray[1] && Number(newArray[1]) < 13) {
     //iterate for each month
     for (let m = 1; m < 13; m++) {
-      //if itterator = month 
+      //if itterator = month
       if (m === Number(newArray[1])) {
-
-        returnedMonth = monthsArray[m-1]
+        returnedMonth = monthsArray[m - 1];
       }
     }
   } else {
@@ -55,15 +54,15 @@ const talkingCalendar = function (date) {
   }
 
   //check to see if the given year is a number
- if (Number(returnedYear) == returnedYear) {
-  const returnedString = `${returnedMonth} ${returnedNumber}, ${returnedYear}`
-  return returnedString
- } else {
-  return nanStatement;
- }
+  if (Number(returnedYear) === returnedYear) {
+    const returnedString = `${returnedMonth} ${returnedNumber}, ${returnedYear}`;
+    return returnedString;
+  } else {
+    return nanStatement;
+  }
 };
 
-console.log(talkingCalendar("2017/12/02"));
+console.log(talkingCalendar("2017/06/14"));
 console.log(talkingCalendar("2007/11/11"));
 console.log(talkingCalendar("1987/08/24"));
 

@@ -1,44 +1,26 @@
+const currencyArray = [
+  ["twentyDollars", 2000],
+  ["tenDollars", 1000],
+  ["fiveDollars", 500],
+  ["twoDollars", 200],
+  ["oneDollars", 100],
+  ["quarter", 25],
+  ["dime", 10],
+  ["nickel", 5],
+  ["penny", 1],
+];
 const calculateChange = function (total, cash) {
-  const currencyArray = [
-    "twentyDollars",
-    2000,
-    "tenDollars",
-    1000,
-    "fiveDollars",
-    500,
-    "twoDollars",
-    200,
-    "oneDollars",
-    100,
-    "quarter",
-    25,
-    "dime",
-    10,
-    "nickel",
-    5,
-    "penny",
-    1,
-  ];
-  let returnedObject = {};
-
+  const returnedObject = {};
   let delta = cash - total;
-  let n = 0;
 
-  const valueCheck = function (delta, n) {
-    if (delta / currencyArray[n + 1] > 0) {
-      if (delta / currencyArray[n + 1] > 1) {
-        returnedObject[currencyArray[n]] = Math.floor(
-          delta / currencyArray[n + 1]
-        );
-      }
-      delta = delta % currencyArray[n + 1];
-      n = n + 2;
-      valueCheck(delta, n);
-    } else {
-      return;
+  for (const [denomination, value] of currencyArray) {
+    const numOfDenomination = delta / value;
+    if (numOfDenomination > 1) {
+      returnedObject[denomination] = Math.floor(numOfDenomination);
     }
-  };
-  valueCheck(delta, n);
+    delta = delta % value;
+  }
+
   return returnedObject;
 };
 

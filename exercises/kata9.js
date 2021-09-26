@@ -23,11 +23,10 @@ const camelCase = function (input) {
     }
   }
   //Add each following word to the first word
-  let combined = newFirstWord + pushedValue;
-  let combinedWithoutCommas = combined.replace(/,/g, "");
+  let combined = newFirstWord.join("") + pushedValue.join("");
 
   //Return the combined words
-  return combinedWithoutCommas.toString();
+  return combined;
 };
 module.exports = { camelCase };
 

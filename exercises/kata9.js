@@ -5,12 +5,7 @@ const camelCase = function (input) {
   //Isolate the first word
   let firstWord = newArray.slice(0, 1);
   let pushedValue = [];
-  let newFirstWord = [];
-  for (let index of firstWord) {
-    for (let i = 0; i < index.length; i++) {
-      newFirstWord.push(index[i].toLowerCase());
-    }
-  }
+  let newFirstWord = firstWord.toString().toLowerCase();
 
   //Convert the first letter of each following word into a capital
   for (let index of slicedArray) {
@@ -23,7 +18,7 @@ const camelCase = function (input) {
     }
   }
   //Add each following word to the first word
-  let combined = newFirstWord.join("") + pushedValue.join("");
+  let combined = newFirstWord + pushedValue.join("");
 
   //Return the combined words
   return combined;

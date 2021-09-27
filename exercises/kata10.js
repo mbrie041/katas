@@ -2,7 +2,7 @@
 // We will be given a number as our input data. This number is the highest value of our multiplication table. Our job is to generate a multiplication table for the values from 1 to the provided number.
 
 const multiplicationTable = function (maxValue) {
-  let newArray = new Array(maxValue);
+  const newArray = new Array(maxValue);
   for (let i = 0; i < newArray.length; i++) {
     newArray[i] = [];
     for (let j = 1; j <= maxValue; j++) {
@@ -13,7 +13,7 @@ const multiplicationTable = function (maxValue) {
 };
 
 const stringConverter = function (array) {
-  let output = array.map((row) => `${row.join(" ")}\n`);
+  const output = array.map((row) => `${row.join(" ")}\n`);
   return output.join("");
 };
 

@@ -9,20 +9,18 @@ const multiplicationTable = function (maxValue) {
       newArray[i].push(j * (i + 1));
     }
   }
-  const stringConverter = function (array) {
-    let output = "";
-    for (let element of array) {
-      output += `${element.join(" ")}\n`;
-    }
-    return output;
-  };
-  console.log(stringConverter(newArray));
   return stringConverter(newArray);
+};
+
+const stringConverter = function (array) {
+  let output = array.map((row) => `${row.join(" ")}\n`);
+  return output.join("");
 };
 
 console.log(multiplicationTable(1));
 console.log(multiplicationTable(5));
 console.log(multiplicationTable(10));
+
 module.exports = {
   multiplicationTable,
 };

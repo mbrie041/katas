@@ -3,7 +3,7 @@
 
 const makeCase = function (input, caseOption) {
   let changedCaseOption = input;
-  let caseOptionArray = [
+  const caseOptionArray = [
     ["camel", camelCase],
     ["pascal", pascalCase],
     ["snake", snakeCase],

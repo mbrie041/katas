@@ -7,6 +7,8 @@ const makeCase = function (input, caseOption) {
     return camelCase(input);
   } else if (lowerCaseOption === "pascal") {
     return pascalCase(input);
+  } else if (lowerCaseOption === "snake") {
+    return snakeCase(input);
   }
 
   //return a string
@@ -46,6 +48,10 @@ const camelCase = function (input) {
 const pascalCase = function (input) {
   const [...restWords] = input.split(" ");
   return restWords.map(letterChange).join("");
+};
+
+const snakeCase = function (input) {
+  return input.toLowerCase().split(" ").join("_");
 };
 
 module.exports = { makeCase };

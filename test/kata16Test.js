@@ -16,11 +16,16 @@ describe("Kata16", function () {
     let result = makeCase("this is a string", "pascal");
     assert.equal(result, "ThisIsAString");
   });
+
+  it("Kata16 should return the input in snake case when the caseOption is snake", function () {
+    let result = makeCase("this is a string", "snake");
+    assert.equal(result, "this_is_a_string");
+  });
 });
 //Expected output
-// thisIsAString camel
-// ThisIsAString pascal
-// this_is_a_string snake
+// thisIsAString camel x
+// ThisIsAString pascal x
+// this_is_a_string snake x
 // this-is-a-string kebab
 // This Is A String title
 // thIs Is A strIng vowel

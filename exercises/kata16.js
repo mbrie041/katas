@@ -2,8 +2,13 @@
 
 const makeCase = function (input, caseOption) {
   // const precedence = [];
-  const [firstWord, ...restWords] = input.split(" ");
-  return firstWord.toLowerCase() + restWords.map(letterChange).join("");
+  const lowerCaseOption = caseOption.toLowerCase();
+  if (lowerCaseOption === "camel") {
+    return camelCase(input);
+  } else if (lowerCaseOption === "pascal") {
+    return pascalCase(input);
+  }
+
   //return a string
   //Check through the caseOption to order the casing styles by the following precedence:
   // 1. camel, pascal, snake, kebab, title
@@ -33,13 +38,22 @@ const precedenceCheck = function (caseOption, precedence) {
     }
   }
 };
+const camelCase = function (input) {
+  const [firstWord, ...restWords] = input.split(" ");
+  return firstWord.toLowerCase() + restWords.map(letterChange).join("");
+};
+
+const pascalCase = function (input) {
+  const [...restWords] = input.split(" ");
+  return restWords.map(letterChange).join("");
+};
 
 module.exports = { makeCase };
-console.log(makeCase("this is a string", "camel"));
-console.log(makeCase("this is a string", "pascal"));
-console.log(makeCase("this is a string", "snake"));
-console.log(makeCase("this is a string", "kebab"));
-console.log(makeCase("this is a string", "title"));
-console.log(makeCase("this is a string", "vowel"));
-console.log(makeCase("this is a string", "consonant"));
-console.log(makeCase("this is a string", ["upper", "snake"]));
+// console.log(makeCase("this is a string", "camel"));
+// console.log(makeCase("this is a string", "pascal"));
+// console.log(makeCase("this is a string", "snake"));
+// console.log(makeCase("this is a string", "kebab"));
+// console.log(makeCase("this is a string", "title"));
+// console.log(makeCase("this is a string", "vowel"));
+// console.log(makeCase("this is a string", "consonant"));
+// console.log(makeCase("this is a string", ["upper", "snake"]));

@@ -7,9 +7,14 @@ describe("Kata16", function () {
     assert.typeOf(result, "string");
   });
 
-  it("Kata16 should return the input in camel case", function () {
+  it("Kata16 should return camel case when the caseOption is camel", function () {
     let result = makeCase("this is a string", "camel");
     assert.equal(result, "thisIsAString");
+  });
+
+  it("Kata16 should return the input in pascal case when the caseOption is pascal", function () {
+    let result = makeCase("this is a string", "pascal");
+    assert.equal(result, "ThisIsAString");
   });
 });
 //Expected output

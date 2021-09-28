@@ -33,19 +33,21 @@ const makeCase = function (input, caseOption) {
   return changedCaseOption;
 };
 
-const letterChange = function (word) {
+const capitalizeOnlyFirstChar = function (word) {
   const [first, ...rest] = word;
   return first.toUpperCase() + rest.join("").toLowerCase();
 };
 
 const camelCase = function (input) {
   const [firstWord, ...restWords] = input.split(" ");
-  return firstWord.toLowerCase() + restWords.map(letterChange).join("");
+  return (
+    firstWord.toLowerCase() + restWords.map(capitalizeOnlyFirstChar).join("")
+  );
 };
 
 const pascalCase = function (input) {
-  const [...restWords] = input.split(" ");
-  return restWords.map(letterChange).join("");
+  const words = input.split(" ");
+  return words.map(capitalizeOnlyFirstChar).join("");
 };
 
 const snakeCase = function (input) {
@@ -57,15 +59,15 @@ const kebabCase = function (input) {
 };
 
 const titleCase = function (input) {
-  const [...restWords] = input.split(" ");
-  return restWords.map(letterChange).join(" ");
+  const words = input.split(" ");
+  return words.map(capitalizeOnlyFirstChar).join(" ");
 };
 
 const vowelCase = function (input) {
   const vowels = "aeiou";
-  const [...restWords] = input;
+  const [...words] = input;
 
-  const returnedValue = restWords.map((letter) => {
+  const returnedValue = words.map((letter) => {
     if (vowels.includes(letter)) {
       return letter.toUpperCase();
     } else {
@@ -77,9 +79,9 @@ const vowelCase = function (input) {
 
 const consonantCase = function (input) {
   const vowels = "aeiou";
-  const [...restWords] = input;
+  const [...words] = input;
 
-  const returnedValue = restWords.map((letter) => {
+  const returnedValue = words.map((letter) => {
     if (!vowels.includes(letter)) {
       return letter.toUpperCase();
     } else {

@@ -18,11 +18,11 @@ describe("Kata16", function () {
   });
 });
 //Expected output
-// thisIsAString
-// ThisIsAString
-// this_is_a_string
-// this-is-a-string
-// This Is A String
-// thIs Is A strIng
-// THiS iS a STRiNG
-// THIS_IS_A_STRING
+// thisIsAString camel
+// ThisIsAString pascal
+// this_is_a_string snake
+// this-is-a-string kebab
+// This Is A String title
+// thIs Is A strIng vowel
+// THiS iS a STRiNG consonant
+// THIS_IS_A_STRING ["upper", "snake"]

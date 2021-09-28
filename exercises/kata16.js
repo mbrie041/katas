@@ -1,31 +1,35 @@
 // Create a function named makeCase that will receive an input string and one or more casing options. Return a new string that is formatted based on casing options:
 
 const makeCase = function (input, caseOption) {
-  // const precedence = [];
-  const lowerCaseOption = caseOption.toLowerCase();
-  if (lowerCaseOption === "camel") {
-    return camelCase(input);
-  } else if (lowerCaseOption === "pascal") {
-    return pascalCase(input);
-  } else if (lowerCaseOption === "snake") {
-    return snakeCase(input);
-  } else if (lowerCaseOption === "kebab") {
-    return kebabCase(input);
-  } else if (lowerCaseOption === "title") {
-    return titleCase(input);
-  } else if (lowerCaseOption === "vowel") {
-    return vowelCase(input);
-  } else if (lowerCaseOption === "consonant") {
-    return consonantCase(input);
+  let changedCaseOption = input;
+  if (caseOption.includes("camel")) {
+    changedCaseOption = camelCase(changedCaseOption);
   }
-
-  //return a string
-  //Check through the caseOption to order the casing styles by the following precedence:
-  // 1. camel, pascal, snake, kebab, title
-  // 2. vowel, consonant
-  // 3. upper, lower
-  //push the caseOption to a new array
-  //iterate through the new array and format the input based on values in the array
+  if (caseOption.includes("pascal")) {
+    changedCaseOption = pascalCase(changedCaseOption);
+  }
+  if (caseOption.includes("snake")) {
+    changedCaseOption = snakeCase(changedCaseOption);
+  }
+  if (caseOption.includes("kebab")) {
+    changedCaseOption = kebabCase(changedCaseOption);
+  }
+  if (caseOption.includes("title")) {
+    changedCaseOption = titleCase(changedCaseOption);
+  }
+  if (caseOption.includes("vowel")) {
+    changedCaseOption = vowelCase(changedCaseOption);
+  }
+  if (caseOption.includes("consonant")) {
+    changedCaseOption = consonantCase(changedCaseOption);
+  }
+  if (caseOption.includes("upper")) {
+    changedCaseOption = upperCase(changedCaseOption);
+  }
+  if (caseOption.includes("lower")) {
+    changedCaseOption = lowerCase(changedCaseOption);
+  }
+  return changedCaseOption;
 };
 
 const letterChange = function (word) {
@@ -33,21 +37,6 @@ const letterChange = function (word) {
   return first.toUpperCase() + rest.join("").toLowerCase();
 };
 
-const precedenceCheck = function (caseOption, precedence) {
-  if (typeof caseOption === Array) {
-    for (const caseValue in caseOption) {
-      if (
-        caseValue === "camel" ||
-        caseValue === "pascal" ||
-        caseValue === "snake" ||
-        caseValue === "kebab" ||
-        caseValue === "title"
-      ) {
-        precedence.push(precedence);
-      }
-    }
-  }
-};
 const camelCase = function (input) {
   const [firstWord, ...restWords] = input.split(" ");
   return firstWord.toLowerCase() + restWords.map(letterChange).join("");
@@ -99,6 +88,14 @@ const consonantCase = function (input) {
   });
 
   return returnedValue.join("");
+};
+
+const upperCase = function (input) {
+  return input.toUpperCase();
+};
+
+const lowerCase = function (input) {
+  return input.toLowerCase();
 };
 module.exports = { makeCase };
 // console.log(makeCase("this is a string", "camel"));

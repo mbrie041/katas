@@ -40,6 +40,21 @@ describe("Kata16", function () {
     let result = makeCase("this is a string", "consonant");
     assert.equal(result, "THiS iS a STRiNG");
   });
+
+  it("Kata16 should return the input in upper case when the caseOption is upper", function () {
+    let result = makeCase("this is a string", "upper");
+    assert.equal(result, "THIS IS A STRING");
+  });
+
+  it("Kata16 should return the input in lower case when the caseOption is lower", function () {
+    let result = makeCase("this is a string", "lower");
+    assert.equal(result, "this is a string");
+  });
+
+  it("Kata16 should return the input in the case which takes precedent first", function () {
+    let result = makeCase("this is a string", ["upper", "snake"]);
+    assert.equal(result, "THIS_IS_A_STRING");
+  });
 });
 //Expected output
 // thisIsAString camel x

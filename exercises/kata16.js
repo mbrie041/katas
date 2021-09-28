@@ -9,6 +9,8 @@ const makeCase = function (input, caseOption) {
     return pascalCase(input);
   } else if (lowerCaseOption === "snake") {
     return snakeCase(input);
+  } else if (lowerCaseOption === "kebab") {
+    return kebabCase(input);
   }
 
   //return a string
@@ -52,6 +54,10 @@ const pascalCase = function (input) {
 
 const snakeCase = function (input) {
   return input.toLowerCase().split(" ").join("_");
+};
+
+const kebabCase = function (input) {
+  return input.toLowerCase().split(" ").join("-");
 };
 
 module.exports = { makeCase };

@@ -13,6 +13,8 @@ const makeCase = function (input, caseOption) {
     return kebabCase(input);
   } else if (lowerCaseOption === "title") {
     return titleCase(input);
+  } else if (lowerCaseOption === "vowel") {
+    return vowelCase(input);
   }
 
   //return a string
@@ -65,6 +67,21 @@ const kebabCase = function (input) {
 const titleCase = function (input) {
   const [...restWords] = input.split(" ");
   return restWords.map(letterChange).join(" ");
+};
+
+const vowelCase = function (input) {
+  const vowels = "aeiou";
+  const [...restWords] = input;
+
+  const returnedValue = restWords.map((letter) => {
+    if (vowels.includes(letter)) {
+      return letter.toUpperCase();
+    } else {
+      return letter;
+    }
+  });
+
+  return returnedValue.join("");
 };
 module.exports = { makeCase };
 // console.log(makeCase("this is a string", "camel"));

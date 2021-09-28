@@ -31,6 +31,11 @@ describe("Kata16", function () {
     let result = makeCase("this is a string", "title");
     assert.equal(result, "This Is A String");
   });
+
+  it("Kata16 should return the input in vowel case when the caseOption is vowel", function () {
+    let result = makeCase("this is a string", "vowel");
+    assert.equal(result, "thIs Is A strIng");
+  });
 });
 //Expected output
 // thisIsAString camel x
@@ -38,6 +43,6 @@ describe("Kata16", function () {
 // this_is_a_string snake x
 // this-is-a-string kebab x
 // This Is A String title x
-// thIs Is A strIng vowel
+// thIs Is A strIng vowel x
 // THiS iS a STRiNG consonant
 // THIS_IS_A_STRING ["upper", "snake"]

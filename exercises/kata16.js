@@ -1,3 +1,4 @@
+/* eslint-disable space-before-function-paren */
 // Create a function named makeCase that will receive an input string and one or more casing options. Return a new string that is formatted based on casing options:
 
 const makeCase = function (input, caseOption) {
@@ -68,10 +69,9 @@ const vowelCase = function (input) {
     if (vowels.includes(letter)) {
       return letter.toUpperCase();
     } else {
-      return letter;
+      return letter.toLowerCase();
     }
   });
-
   return returnedValue.join("");
 };
 
@@ -83,7 +83,7 @@ const consonantCase = function (input) {
     if (!vowels.includes(letter)) {
       return letter.toUpperCase();
     } else {
-      return letter;
+      return letter.toLowerCase();
     }
   });
 
@@ -97,7 +97,7 @@ const upperCase = function (input) {
 const lowerCase = function (input) {
   return input.toLowerCase();
 };
-module.exports = { makeCase };
+module.exports = {makeCase};
 // console.log(makeCase("this is a string", "camel"));
 // console.log(makeCase("this is a string", "pascal"));
 // console.log(makeCase("this is a string", "snake"));

@@ -1,3 +1,4 @@
+/* eslint-disable space-before-function-paren */
 const assert = require("chai").assert;
 const makeCase = require("../exercises/kata16.js").makeCase;
 

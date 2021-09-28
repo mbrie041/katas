@@ -15,6 +15,8 @@ const makeCase = function (input, caseOption) {
     return titleCase(input);
   } else if (lowerCaseOption === "vowel") {
     return vowelCase(input);
+  } else if (lowerCaseOption === "consonant") {
+    return consonantCase(input);
   }
 
   //return a string
@@ -75,6 +77,21 @@ const vowelCase = function (input) {
 
   const returnedValue = restWords.map((letter) => {
     if (vowels.includes(letter)) {
+      return letter.toUpperCase();
+    } else {
+      return letter;
+    }
+  });
+
+  return returnedValue.join("");
+};
+
+const consonantCase = function (input) {
+  const vowels = "aeiou";
+  const [...restWords] = input;
+
+  const returnedValue = restWords.map((letter) => {
+    if (!vowels.includes(letter)) {
       return letter.toUpperCase();
     } else {
       return letter;

@@ -36,6 +36,10 @@ describe("Kata16", function () {
     let result = makeCase("this is a string", "vowel");
     assert.equal(result, "thIs Is A strIng");
   });
+  it("Kata16 should return the input in consonant case when the caseOption is consonant", function () {
+    let result = makeCase("this is a string", "consonant");
+    assert.equal(result, "THiS iS a STRiNG");
+  });
 });
 //Expected output
 // thisIsAString camel x

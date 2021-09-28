@@ -11,6 +11,8 @@ const makeCase = function (input, caseOption) {
     return snakeCase(input);
   } else if (lowerCaseOption === "kebab") {
     return kebabCase(input);
+  } else if (lowerCaseOption === "title") {
+    return titleCase(input);
   }
 
   //return a string
@@ -60,6 +62,10 @@ const kebabCase = function (input) {
   return input.toLowerCase().split(" ").join("-");
 };
 
+const titleCase = function (input) {
+  const [...restWords] = input.split(" ");
+  return restWords.map(letterChange).join(" ");
+};
 module.exports = { makeCase };
 // console.log(makeCase("this is a string", "camel"));
 // console.log(makeCase("this is a string", "pascal"));

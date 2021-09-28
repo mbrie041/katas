@@ -26,13 +26,18 @@ describe("Kata16", function () {
     let result = makeCase("this is a string", "kebab");
     assert.equal(result, "this-is-a-string");
   });
+
+  it("Kata16 should return the input in title case when the caseOption is title", function () {
+    let result = makeCase("this is a string", "title");
+    assert.equal(result, "This Is A String");
+  });
 });
 //Expected output
 // thisIsAString camel x
 // ThisIsAString pascal x
 // this_is_a_string snake x
 // this-is-a-string kebab x
-// This Is A String title
+// This Is A String title x
 // thIs Is A strIng vowel
 // THiS iS a STRiNG consonant
 // THIS_IS_A_STRING ["upper", "snake"]

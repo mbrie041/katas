@@ -3,32 +3,21 @@
 
 const makeCase = function (input, caseOption) {
   let changedCaseOption = input;
-  if (caseOption.includes("camel")) {
-    changedCaseOption = camelCase(changedCaseOption);
-  }
-  if (caseOption.includes("pascal")) {
-    changedCaseOption = pascalCase(changedCaseOption);
-  }
-  if (caseOption.includes("snake")) {
-    changedCaseOption = snakeCase(changedCaseOption);
-  }
-  if (caseOption.includes("kebab")) {
-    changedCaseOption = kebabCase(changedCaseOption);
-  }
-  if (caseOption.includes("title")) {
-    changedCaseOption = titleCase(changedCaseOption);
-  }
-  if (caseOption.includes("vowel")) {
-    changedCaseOption = vowelCase(changedCaseOption);
-  }
-  if (caseOption.includes("consonant")) {
-    changedCaseOption = consonantCase(changedCaseOption);
-  }
-  if (caseOption.includes("upper")) {
-    changedCaseOption = upperCase(changedCaseOption);
-  }
-  if (caseOption.includes("lower")) {
-    changedCaseOption = lowerCase(changedCaseOption);
+  let caseOptionArray = [
+    ["camel", camelCase],
+    ["pascal", pascalCase],
+    ["snake", snakeCase],
+    ["kebab", kebabCase],
+    ["title", titleCase],
+    ["vowel", vowelCase],
+    ["consonant", consonantCase],
+    ["upper", upperCase],
+    ["lower", lowerCase],
+  ];
+  for (const [caseInput, caseFunction] of caseOptionArray) {
+    if (caseOption.includes(caseInput)) {
+      changedCaseOption = caseFunction(changedCaseOption);
+    }
   }
   return changedCaseOption;
 };

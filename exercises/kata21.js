@@ -12,9 +12,12 @@ class GuessingGame {
     const parsed = parseInt(givenNumber);
     if (this.numberToGuess === parsed) {
       this.userInterface.userWon(this.counter);
+      // console.log(this.userInterface.userWon(this.counter));
       return true;
     } else {
       this.counter++;
+      //if user number was too high, tell them that
+      //if user number was too low, tell them that
       return false;
     }
     //increment guess counter
@@ -27,13 +30,21 @@ class GuessingGame {
 
 class PromptSyncInterface {
   constructor() {}
-  askForNumber() {}
+  askForNumber() {
+    const prompt = require("prompt-sync")();
+    const answer = prompt("Guess a number: ");
+
+    return answer;
+  }
   userWon(counterValue) {
     return `You got it! You took ${counterValue} attempts!`;
   }
+  userGuessedHigh() {}
+  userGuessedLow() {}
 }
-
-new GuessingGame();
+const defaultInterface = new PromptSyncInterface();
+const generatedAnswer = Math.random();
+// new GuessingGame(defaultInterface, generatedAnswer).playGame();
 module.exports = {GuessingGame};
 //create object that houses the game logic and runs the game
 //new game object

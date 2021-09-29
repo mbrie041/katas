@@ -5,13 +5,16 @@ class GuessingGame {
   constructor(userInterface, numberToGuess) {
     this.userInterface = userInterface;
     this.numberToGuess = numberToGuess;
+    this.counter = 1;
   }
   playGame() {
     const givenNumber = this.userInterface.askForNumber();
     const parsed = parseInt(givenNumber);
     if (this.numberToGuess === parsed) {
+      this.userInterface.userWon(this.counter);
       return true;
     } else {
+      this.counter++;
       return false;
     }
     //increment guess counter
@@ -19,11 +22,15 @@ class GuessingGame {
     //If that's true, return true and log "You got it! You took x attempts!"
     // If that's false, return false
   }
+  //responible for keeping track of # of attempts
 }
 
 class PromptSyncInterface {
   constructor() {}
   askForNumber() {}
+  userWon(counterValue) {
+    return `You got it! You took ${counterValue} attempts!`;
+  }
 }
 
 new GuessingGame();

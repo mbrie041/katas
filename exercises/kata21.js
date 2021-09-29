@@ -7,7 +7,13 @@ class GuessingGame {
     this.numberToGuess = numberToGuess;
   }
   playGame() {
-    return true;
+    const givenNumber = this.userInterface.askForNumber();
+    const parsed = parseInt(givenNumber);
+    if (this.numberToGuess === parsed) {
+      return true;
+    } else {
+      return false;
+    }
     //increment guess counter
     //check to see if number returned from askForNumber is equal to numberToGuess
     //If that's true, return true and log "You got it! You took x attempts!"

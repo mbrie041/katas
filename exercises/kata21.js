@@ -16,6 +16,11 @@ class GuessingGame {
       return true;
     } else {
       this.counter++;
+      if (this.numberToGuess > parsed) {
+        this.userInterface.userGuessedLow();
+      } else if (this.numberToGuess < parsed) {
+        this.userInterface.userGuessedHigh();
+      }
       //if user number was too high, tell them that
       //if user number was too low, tell them that
       return false;

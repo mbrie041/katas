@@ -39,8 +39,12 @@ class PromptSyncInterface {
   userWon(counterValue) {
     return `You got it! You took ${counterValue} attempts!`;
   }
-  userGuessedHigh() {}
-  userGuessedLow() {}
+  userGuessedHigh() {
+    return "Too High!";
+  }
+  userGuessedLow() {
+    return "Too Low!";
+  }
 }
 const defaultInterface = new PromptSyncInterface();
 const generatedAnswer = Math.random();

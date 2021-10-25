@@ -50,7 +50,3 @@ const game = new GuessingGame(defaultInterface, generatedAnswer);
 // eslint-disable-next-line no-empty
 while (!game.takeTurn()) {}
 module.exports = {GuessingGame};
-//create object that houses the game logic and runs the game
-//new game object
-//
-//create tests that test the object

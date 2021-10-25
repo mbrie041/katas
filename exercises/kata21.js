@@ -7,12 +7,11 @@ class GuessingGame {
     this.numberToGuess = numberToGuess;
     this.counter = 1;
   }
-  playGame() {
+  takeTurn() {
     const givenNumber = this.userInterface.askForNumber();
     const parsed = parseInt(givenNumber);
     if (this.numberToGuess === parsed) {
       this.userInterface.userWon(this.counter);
-      // console.log(this.userInterface.userWon(this.counter));
       return true;
     } else {
       this.counter++;
@@ -21,16 +20,9 @@ class GuessingGame {
       } else if (this.numberToGuess < parsed) {
         this.userInterface.userGuessedHigh();
       }
-      //if user number was too high, tell them that
-      //if user number was too low, tell them that
       return false;
     }
-    //increment guess counter
-    //check to see if number returned from askForNumber is equal to numberToGuess
-    //If that's true, return true and log "You got it! You took x attempts!"
-    // If that's false, return false
   }
-  //responible for keeping track of # of attempts
 }
 
 class PromptSyncInterface {
@@ -42,18 +34,21 @@ class PromptSyncInterface {
     return answer;
   }
   userWon(counterValue) {
-    return `You got it! You took ${counterValue} attempts!`;
+    console.log(`You got it! You took ${counterValue} attempts!`);
   }
   userGuessedHigh() {
-    return "Too High!";
+    console.log("Too High!");
   }
   userGuessedLow() {
-    return "Too Low!";
+    console.log("Too Low!");
   }
 }
 const defaultInterface = new PromptSyncInterface();
-const generatedAnswer = Math.random();
-// new GuessingGame(defaultInterface, generatedAnswer).playGame();
+const generatedAnswer = Math.ceil(Math.random() * 100);
+
+const game = new GuessingGame(defaultInterface, generatedAnswer);
+// eslint-disable-next-line no-empty
+while (!game.takeTurn()) {}
 module.exports = {GuessingGame};
 //create object that houses the game logic and runs the game
 //new game object

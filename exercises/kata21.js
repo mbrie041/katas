@@ -48,5 +48,5 @@ const generatedAnswer = Math.ceil(Math.random() * 100);
 
 const game = new GuessingGame(defaultInterface, generatedAnswer);
 // eslint-disable-next-line no-empty
-while (!game.takeTurn()) {}
+// while (!game.takeTurn()) {}
 module.exports = {GuessingGame};
